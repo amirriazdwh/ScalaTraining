@@ -1,5 +1,7 @@
 // In mathematics and computer science, a higher-order function is a function that does at least one of the following:
-// ⁕take one or more functions as an input ⁕output a function All other functions are first order functions. In mathematics
+// ⁕take one or more functions as an input
+// ⁕output a function
+// All other functions are first order functions. In mathematics
 // higher-order functions are also known as operators or functionals. The derivative in calculus is a common example,
 // since it maps a function to another function. In the untyped lambda calculus, all functions are higher-order; in a
 // typed lambda calculus, from which most functional programming languages are derived, higher-order functions are values
