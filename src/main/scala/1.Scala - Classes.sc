@@ -24,7 +24,7 @@
 // Note:  if variable scope is private[this], it can only be accessed in its own class,  if private it can only be access in companion object
 //        if protected it can be accessed in derived class while public scope can be accessed anywhere.
 // Note :  // class methods can be public, protected and private.  public scope need not to be specified
-// this is test for git
+
 class person_reg(firsname:String, lastName :String)
 // all case classes are immutable,  just like all the other data types in scala.
 case class person_imt ( firstname :String, lastname : String)
