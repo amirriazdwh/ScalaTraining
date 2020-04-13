@@ -54,7 +54,7 @@
 // 7.  partial function to pack and unpack a values.
 //    (a,_) =tuple(2,3)
 //////////////////////////////////////////////////////////////////////////////
-//  The term closure comes from the fact that a piece of code (block, function) can have free variables that are
+//8.  The term closure comes from the fact that a piece of code (block, function) can have free variables that are
 //   closed (i.e. bound to a value) by the environment in which the block of code is defined.
 
 //   Take for example the Scala function definition:
