@@ -29,15 +29,56 @@
 //     val div = (num: Double, den: Double) => { num / den}.  div is a lambda function and
 //     (num: Double, den: Double) => { num / den} is an anonymous function
 //////////////////////////////////////////////////////////////////////////////
-//     used as a tool to perform different placces.  like pattern matching or partial functions or map or reduce calculations
-// 4.  Higher order functions take other functions as parameters or return a function as a result
-//     they help in writting a better call back functions
+// 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
+//     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
+//
+//     f(x,y) =x + y**2 is a function. a currying function translate into f(x,y) =h(x)(y) then
+//     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied function or pure function
+//     a partial function gets its value from implicits automatically
+//     a function to give result all its values must be applied. so partically applied function is also used to delay
+//     the execution.
+////////////////////////////////////////////////////////////////////////////////////////
 // 5.  in Lambda calculus function cannot be evaluated until its bind to a certain
 //     variable.  so if a function has two variable f(x, y) we can delay its execution
 //     till end by using _,  the phenonmon is called partically applied functions
-// 6.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
-//     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
-// 7.  partial function to pack and unpack a values.  suppose a function is on value 1..10,  partial will be from 1..5
+///////////////////////////////////////////////////////////////////////////////////////
+// 6   used as a tool to perform different tasks.  like pattern matching and if else logic
+//     a partial function is defined as,  f:R->R
+//             { x**2  if x<0   }
+//      f(x) = { x     if x=0   }
+//             { x*x   if x >0  }
+//
+//     for different values of x different functions are selected.  this is like pattern matching in scala and
+//     the case statement. where x match { case x if x=0 => x**3}
+//
+// 7.  partial function to pack and unpack a values.
+//    (a,_) =tuple(2,3)
+//////////////////////////////////////////////////////////////////////////////
+//  The term closure comes from the fact that a piece of code (block, function) can have free variables that are
+//   closed (i.e. bound to a value) by the environment in which the block of code is defined.
+
+//   Take for example the Scala function definition:
+
+//   def addConstant(v: Int): Int = v + k
+//   In the function body there are two names (variables) v and k indicating two integer values. The name v is bound because
+//   it is declared as an argument of the function addConstant (by looking at the function declaration we know that v will
+//   be assigned a value when the function is invoked). The name k is free wrt the function addConstant because the function
+//   contains no clue as to what value k is bound to (and how).
+//
+//   In order to evaluate a call like:
+//
+//    val n = addConstant(10)
+//    we have to assign k a value, which can only happen if the name k is defined in the context in which addConstant is defined.
+//   For example:
+//
+//  def increaseAll(values: List[Int]): List[Int] =
+//  {
+//    val k = 2
+//
+//   def addConstant(v: Int): Int = v + k
+//
+//    values.map(addConstant)
+//  }
 //////////////////////////////////////////////////////////////////////////////
 //    as in lambda calculus they are defined as
 //    lambda:x => express x
