@@ -1,5 +1,5 @@
 // 1.  A function in Lambda calculus is a pure function, if,  it has no
-//     1.a  side effects.  means external OR global variable dont change its output given the same input
+//          side effects.  means external OR global variable dont change its output given the same input
 //          in short it does not accesses the global variable,
 //          if we have to access global variable in a function we can still accomplish this by making state value
 //          (global variable) immutable in class or in tuples
@@ -10,7 +10,16 @@
 //       2.  does not change function arguments
 //       3.  result depends on arugments
 //
-//      let there be a function  y=f(x)  where x belong R.  then
+//      let there be a function  y=f(x)  where x belong R. x is an independent variable, y is dependent variable and
+//      f is a function name.  this can be written in scala as
+//
+//      def f(x:Type)={}   where {} is y   means
+//      def sqr(x:Int) ={x**2}
+//
+//      Lamdba calculus has only one indepedent variable.
+//      in a pure functions argument cannot be modified. that why we cannot give var or val in function parameters
+//      in pure functions parameters neither you can set values or you can get value.  Therefore
+//      def sqr(val x:Int) ={x**2} is a syntax error
 /////////////////////////////////////////////////////////////////////
 // 2.  Higher order functions take other functions as parameters or return a function as a result
 //     they help in writting a better call back functions
@@ -21,6 +30,10 @@
 //     we called such functions as higher order functions. with same logic if a function returns a function,  the returning
 //     function will not execute before the function its contains.  therefore calling function is higher order function
 //     example,  map, filter, reduce.
+//
+//     let there be a function  z=h(x,y) where y=f(x).   then z=h(x, f(x)) then H function is higer order function
+//     because it order of execution comes after the execution of y=f(x).  note h function make be called first but once
+//     in execution y=f(x) function execution must complete before h function execution completes.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
 //     anonymous function is defined as the function which dont have any name.
@@ -69,7 +82,7 @@
 //     variable.  so if a function has two variable f(x, y) we can delay its execution
 //     till end by using _,  the phenonmon is called partically applied functions
 ///////////////////////////////////////////////////////////////////////////////////////
-// 6   used as a tool to perform different tasks.  like pattern matching and if else logic
+// 6   partial functions are used as a tool to perform different tasks.  like pattern matching and if else logic
 //     a partial function is defined as,  f:R->R
 //             { x**2  if x<0   }
 //      f(x) = { x     if x=0   }
@@ -91,6 +104,7 @@
 //   it is declared as an argument of the function addConstant (by looking at the function declaration we know that v will
 //   be assigned a value when the function is invoked). The name k is free wrt the function addConstant because the function
 //   contains no clue as to what value k is bound to (and how).
+//   a value of a function is bounded if its part of set and value is free if its not part of the set
 //
 //   In order to evaluate a call like:
 //
@@ -127,8 +141,6 @@
 /////////////////////////////////////////////////////
 // function definition grammar in the light of scala
 ////////////////////////////////////////////////////
-// in a pure functions argument cannot be modified. that why we cannot give var or val in function parameters
-// in pure functions parameters neither you can set values or you can get value
 // in case of method def define an immutable variable to which function is assigned. in case of Lambda function val is
 //  used to defined immutable variable to assign aynonmous function. that why we have = sign
 //  function return type comes with def name: Int  just like val name:Int
