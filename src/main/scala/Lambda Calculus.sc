@@ -3,13 +3,14 @@
 //          in short it does not accesses the global variable,
 //          if we have to access global variable in a function we can still accomplish this by making state value
 //          (global variable) immutable in class or in tuples
-//     1.b  Referential transparency ( for a given values of X we get a value Y) means argument determine result of a pure
-//          function.  ie x->Y. in mathematical terms such functions are called idempotents
+//          Referential transparency means for each values of x there is a value of y ie x=>Y.
 //     ---------------------------------
 //     A pure function characteristic
 //       1.  a pure function does not change global state
 //       2.  does not change function arguments
 //       3.  result depends on arugments
+//
+//      let there be a function  y=f(x)  where x belong R.  then
 /////////////////////////////////////////////////////////////////////
 // 2.  Higher order functions take other functions as parameters or return a function as a result
 //     they help in writting a better call back functions
@@ -24,16 +25,18 @@
 // 3.  anonymous and Lambda functions
 //     anonymous function is defined as the function which dont have any name.
 //
-//     for example y=f(x) is a pure function here x is input f is the function name and y is output variable
-//    if we represent this function as anonymous we represent x determine y.  in mathemtical terms is written as
-//     x => y and if y=x**2  then x => x**2.  here x**2 is function definition
+//     for example z=f(x,y) is a pure function here x is input f is the function name and z is output variable
+//    if we represent this function as anonymous we represent (x,y) determine z.  in mathemtical terms is written as
+//     (x,y) => z  where z=x**2+y.   z part always gives definition of the function
 //
-//     val div = (num: Double, den: Double) => { num / den}.  div is a lambda function name and
-//     (num: Double, den: Double) => { num / den} is an anonymous function
+//    in scala the definition of anonymous function becomes.
+//    (x:Int, y:int) =>{}.   here z is represented as {} which gives definiton of funciton
+//
+//     var div = (num: Double, den: Double) => { num / den}.  div is a lambda function (since assigned to variable)
+//     (num: Double, den: Double) => { num / den} is an anonymous function.
 //
 //     in exact terms the definition is:
-//
-//     variableName: inputType => {}:outputType   where {} is how function is defined
+//     (variableName: inputType) => {}:outputType   where {} is how function is defined
 //
 //     an anonymous function is being created by Function object line Function[Int, Int, Int] which is represented by
 //     (Int,Int)=>Int so if this anonymous function is assigned variable its type will be
@@ -41,7 +44,7 @@
 //
 //     if an anonymous function is assigned to a variable its called a lambda function
 //
-//     val varName:(Int,Int)=>Int =inputType=>{}:outPutType
+//     val varName:(Type,Type)=>Type =(x:Type)=>{}:Type
 //
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
@@ -196,3 +199,10 @@ def addTototalM(x:Int)={
        def f(x:Int)(y:Int)={x+y}
 //     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means
        (x:Int)=>(y:Int)=>{x+y}
+
+
+// A common definition of function between two sets (or between two classes, when working in GBN) is based on the notion of
+// "ordered pair". An ordered pair is some set-theoretic construction, denoted "(a,b)" where a and b are sets, with the property
+// that (a,b)=(c,d) if and only if a=c and b=d. There are many ways of achieving this; the most common is the Kuratowski
+// definition of ordered pair:
+
