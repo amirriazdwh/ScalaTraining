@@ -20,32 +20,47 @@
 //     we called such functions as higher order functions. with same logic if a function returns a function,  the returning
 //     function will not execute before the function its contains.  therefore calling function is higher order function
 //     example,  map, filter, reduce.
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
 //     anonymous function is defined as the function which dont have any name.
 //
 //     for example y=f(x) is a pure function here x is input f is the function name and y is output variable
 //    if we represent this function as anonymous we represent x determine y.  in mathemtical terms is written as
-//     x => y
+//     x => y and if y=x**2  then x => x**2.  here x**2 is function definition
 //
 //     val div = (num: Double, den: Double) => { num / den}.  div is a lambda function name and
 //     (num: Double, den: Double) => { num / den} is an anonymous function
 //
 //     in exact terms the definition is:
 //
-//     variableName: inputType => {}:outputType
+//     variableName: inputType => {}:outputType   where {} is how function is defined
 //
-//     anonymous functions are also called apply functions as they have a apply(input):output method represented by
-//     notations as input:type => output:type
-//////////////////////////////////////////////////////////////////////////////
+//     an anonymous function is being created by Function object line Function[Int, Int, Int] which is represented by
+//     (Int,Int)=>Int so if this anonymous function is assigned variable its type will be
+//     val x:(Int,Int)=> Int is same as val x:Function[Int,Int,Int].
+//
+//     if an anonymous function is assigned to a variable its called a lambda function
+//
+//     val varName:(Int,Int)=>Int =inputType=>{}:outPutType
+//
+// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
 //     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
 //
-//     f(x,y) =x + y**2 is a function. a currying function translate into f(x,y) =h(x)(y) then
+//     z = f(x,y) =x + y**2 is a function. a currying function translate into f(x,y) =h(x)(y) then
 //     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied function or pure function
-//     a partial function gets its value from implicits automatically
+//     a partially applied function gets its value from implicits automatically
 //     a function to give result all its values must be applied. so partically applied function is also used to delay
 //     the execution.
+//
+//     z =h(2)(_)=f(2,3) means h(2)(_)=2 + _**2 and h(2)(3) =2+3**2
+//
+//     z=f(x,y) is a function  and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
+//     so it can be reprsented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
+//
+//     so scala curry method is defined as    f(x:Type)(y:Type)={}        means  def f(x:Int)(y:Int)={x+y}
+//     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means (x:Int)=>(y:Int)=>{x+y}
+//
 ////////////////////////////////////////////////////////////////////////////////////////
 // 5.  in Lambda calculus function cannot be evaluated until its bind to a certain
 //     variable.  so if a function has two variable f(x, y) we can delay its execution
@@ -158,9 +173,7 @@ def addTototal02(x:Int) ={
 
 // anonymous function assigned to a variable.  here the anonymous function is (num: Double, den: Double) =>{num / den}
 // (num: Double, den: Double) is input type
-val divide0 = (num: Double, den: Double) => ={
-  num / den
-}
+val divide0 = (num: Double, den: Double) => { num / den }
 println(divide0(9,4))
 println(divide0.apply(9,4))
 // in same way any function return Unit is not a pure function. means a function which does not return any value
@@ -171,3 +184,15 @@ val totalM =10
 def addTototalM(x:Int)={
   x+totalM
 }
+
+///////////////////////////////////////////////////////
+// curry function syntax as per mathematical definition
+//////////////////////////////////////////////////////
+
+//     z=f(x,y) is a function  and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
+//     so it can be reprsented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
+//
+//     so scala curry method is defined as    f(x:Type)(y:Type)={}        means
+       def f(x:Int)(y:Int)={x+y}
+//     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means
+       (x:Int)=>(y:Int)=>{x+y}
