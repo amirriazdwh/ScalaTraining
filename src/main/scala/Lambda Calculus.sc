@@ -218,3 +218,21 @@ def addTototalM(x:Int)={
 // that (a,b)=(c,d) if and only if a=c and b=d. There are many ways of achieving this; the most common is the Kuratowski
 // definition of ordered pair:
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// Since scala is a functional programming language it support recursion more and loop less
+///////////////////////////////////////////////////////////////////////////////////////
+def factorial(n: Int): Int = if (n == 0) 1 else n * factorial(n-1)
+
+// the recursion work by add the calucation elements building a function untill all values are available.
+//  once all values are available the value is calculated,  here is how it works
+
+factorial(5)
+//  if (5 == 0) 1 else 5 * factorial(5-1)
+//   5 * factorial(5-1)
+//     5 * factorial(4)
+//       5 * (4 * factorial(3))
+//         5 * (4 * (3 * factorial(2)))
+//           5 * (4 * (3 * (2 * factorial(1))))
+//             5 * (4 * (3 * (2 * (1 * factorial(0))))
+//               5 * (4 * (3 * (2 * (1 * 1))))
+//                 120

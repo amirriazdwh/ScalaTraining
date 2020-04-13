@@ -208,7 +208,6 @@ val halfOfCurr4 = dividecurr0(2)
 //
 // variable type divideCurr return types define halfOfCurr5 type
 val halfOf1: (Double) => Double = divide0(_, 2)
-halfOf1
 val halfOf2: (Double) => Double = divide3(_, 2)
 
 // The difference between them is, that a val is executed when it is defined whereas
