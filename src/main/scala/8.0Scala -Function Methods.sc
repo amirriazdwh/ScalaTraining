@@ -89,7 +89,8 @@ println(divide1111(2,4))
 // function,  here a partical function is being assigned to a function based on condition satsified
 val divide111:(Double,Double)=>Option[Double]= {
   case (num, den) if den!=0 => Some(num / den)
-  case(_, den) if den==0 => None
+  // cannot put more that one case statement as case statement is used for unpacking not for pattern matching
+  //case(_, den) if den==0 => None
 }
 
 println(divide111(2,0))

@@ -22,12 +22,21 @@
 //     example,  map, filter, reduce.
 //////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
-//     (num: Double, den: Double) => { num / den} is defined as the function which dont have any name
-//     f(2)=2**2+2  is a pure function but can be written as (2**2+2 )(2) here 2**2+2 anonymous function
-//     or lambda function.  so Lambda = 2**2+2.  Lambda is a name given to a unname function.  the name can be anything
-//     so a Lambda function is any function which has no name and can be given a name
-//     val div = (num: Double, den: Double) => { num / den}.  div is a lambda function and
+//     anonymous function is defined as the function which dont have any name.
+//
+//     for example y=f(x) is a pure function here x is input f is the function name and y is output variable
+//    if we represent this function as anonymous we represent x determine y.  in mathemtical terms is written as
+//     x => y
+//
+//     val div = (num: Double, den: Double) => { num / den}.  div is a lambda function name and
 //     (num: Double, den: Double) => { num / den} is an anonymous function
+//
+//     in exact terms the definition is:
+//
+//     variableName: inputType => {}:outputType
+//
+//     anonymous functions are also called apply functions as they have a apply(input):output method represented by
+//     notations as input:type => output:type
 //////////////////////////////////////////////////////////////////////////////
 // 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
 //     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
@@ -56,9 +65,9 @@
 //////////////////////////////////////////////////////////////////////////////
 //8.  The term closure comes from the fact that a piece of code (block, function) can have free variables that are
 //   closed (i.e. bound to a value) by the environment in which the block of code is defined.
-
+//
 //   Take for example the Scala function definition:
-
+//
 //   def addConstant(v: Int): Int = v + k
 //   In the function body there are two names (variables) v and k indicating two integer values. The name v is bound because
 //   it is declared as an argument of the function addConstant (by looking at the function declaration we know that v will
@@ -71,14 +80,15 @@
 //    we have to assign k a value, which can only happen if the name k is defined in the context in which addConstant is defined.
 //   For example:
 //
-//  def increaseAll(values: List[Int]): List[Int] =
-//  {
-//    val k = 2
+//   def increaseAll(values: List[Int]): List[Int] =
+//   {
+//     val k = 2
 //
-//   def addConstant(v: Int): Int = v + k
+//     def addConstant(v: Int): Int = v + k
 //
-//    values.map(addConstant)
-//  }
+//     values.map(addConstant)
+//   }
+//
 //////////////////////////////////////////////////////////////////////////////
 //    as in lambda calculus they are defined as
 //    lambda:x => express x
@@ -87,6 +97,37 @@
 // this is not a pure function as mySum(0) not= mySum(4)
 ////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  SCALA LANGUAGE LEARNING
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// var variableName: Type
+// why we use :  in english : means second explains first.  here Type explains what is variableName
+//
+/////////////////////////////////////////////////////
+// function definition grammar in the light of scala
+////////////////////////////////////////////////////
+// in a pure functions argument cannot be modified. that why we cannot give var or val in function parameters
+// in pure functions parameters neither you can set values or you can get value
+// in case of method def define an immutable variable to which function is assigned. in case of Lambda function val is
+//  used to defined immutable variable to assign aynonmous function. that why we have = sign
+//  function return type comes with def name: Int  just like val name:Int
+//////////////////////////////////////////////////////////////////////////
+
+// function with side effects
+var g:Int =10
+
+def sumg(i:Int)={
+  g=i+g
+  g
+}
+var a = sumg(2)
+var b = sumg(2)
+
+// output will not be same same input.  so it not a function by methatical definition.   refer to ball diagram
+// for pure function was value of x should map on the same value to y  y=f(x)
 
 def mySum(n:Int):Unit ={
   if (n==0) println("Got Zero")
@@ -103,6 +144,25 @@ def addTototal01(x:Int) ={
 def addTototal02(x:Int) ={
   total+=x
 }
+///////////////////////////////////////////////////////////////////////
+// an anonymous function has no name as variable while it has return type and body represented by {} and body is
+// being assigned to anonymous variable by = as it case of method.   means  name:type = {}.  since in anonymous no name
+// present it become type={}
+// variable type is represented by inputType => outputType. this is because function are actually objects which contain apply
+//  method with input and output
+// Int=>Int=>Int means function of order 2.  means currying function.
+// (Int, Int) =>Int  means an anonymous function as parameter definition of a higher order function
+// a Lambda function has a name so its defined as
+//  var variableName:Type ={}.  where type is like function. that is Int=>Int
+////////////////////////////////////////////////////////////////////////
+
+// anonymous function assigned to a variable.  here the anonymous function is (num: Double, den: Double) =>{num / den}
+// (num: Double, den: Double) is input type
+val divide0 = (num: Double, den: Double) => ={
+  num / den
+}
+println(divide0(9,4))
+println(divide0.apply(9,4))
 // in same way any function return Unit is not a pure function. means a function which does not return any value
 /////////////////////////////////////////////////////////////////////////////////
 /// however the same function is pure function because totalM is immutable
