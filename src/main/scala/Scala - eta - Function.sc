@@ -1,8 +1,8 @@
-//if _ is after a method,  its performing conversion of method to a function
-// if (_) means derived the data types from the function call arguments
-// _=> means a function who apply method input parameter can take argument of type derived from call
-// * means zero or many expressions
-// case _ => means take some type as arugment and it will match all the times
+//  if _ is after a method,  its performing conversion of method to a function
+//  if (_) means derived the data types from the function call arguments
+//  _=> means a function who apply method input parameter can take argument of type derived from call
+//  * means zero or many expressions
+//  case _ => means take some type as arugment and it will match all the times
 
 import scala._                    // Wild card -- all of Scala is imported
 import scala.{ Predef => _, _ }   // Exception, everything except Predef
