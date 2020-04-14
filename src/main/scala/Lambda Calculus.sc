@@ -22,6 +22,8 @@
 //      def sqr(val x:Int) ={x**2} is a syntax error
 /////////////////////////////////////////////////////////////////////
 // 2.  Higher order functions take other functions as parameters or return a function as a result
+//      h(x) = f(g(x))
+//
 //     they help in writting a better call back functions
 //     a function can take arguments and function as parameter. if we pass one function as parameter to another function
 //     we need to know which function will execute first.  means we have to maintain an order.  this is called order of
@@ -33,7 +35,8 @@
 //
 //     let there be a function  z=h(x,y) where y=f(x).   then z=h(x, f(x)) then H function is higer order function
 //     because it order of execution comes after the execution of y=f(x).  note h function make be called first but once
-//     in execution y=f(x) function execution must complete before h function execution completes.
+//     in execution y=f(x) function execution must complete before h function execution completes. that is why f(x) is called
+//     first order function
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
 //     anonymous function is defined as the function which dont have any name.
