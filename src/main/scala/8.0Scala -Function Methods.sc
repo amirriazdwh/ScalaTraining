@@ -1,17 +1,16 @@
-// Note: in functional programming a function must have all variable to be called as a function otherwise
-//       it will be called partially function if some parameters are missing
-// Note:  method is defined as       def add(a:Int , b:Int):Int={a+b}
-//        this method return a anymous function def add(a:Int , b:Int)=(a:Int,b:Int)=>{a+b}
-//        curried functons          def add(a:Int)(b:Int) ={a+b} where (a:Int) and (b:Int) are partical parts of this function
+// Note:  method is defined as  def add(a:Int , b:Int):Int={a+b}
+//        this method return a function def add(a:Int , b:Int)=(a:Int,b:Int)=>{a+b}
+//        curried methods def add(a:Int)(b:Int) ={a+b} where (a:Int) and (b:Int) are partical parts of this function
 //        when they are called as add(4) or add(4)(_) or add(4,_) they are called as partically applied function.
 //        all function containing multiple parameters are curried function since functional programming allows only one parameter
 //        so add(4,5) is applied as add(4)(5)
-// Note:  def add(a: Int)(b: Int) = a + b is currying functing. define as Int=>Int=>Int, means it return as function
+// Note:  def add(a: Int)(b: Int):Int = a + b is currying method. define as Int=>Int=>Int, means it return as function
 //        val addcur:Int=>Int =add(4) here add(4) return function Int=>Int or val addcon =add _ will return Int =>Int=>Int
 
 // Note:  Function is defined as     val divide = (num: Double, den: Double) =>{ num / den}
-//        curried formation          val divide = (num:Double)(den:Double) => {num/den}
-//        anymous function           (num:Double)(den:Double) => {num/den}
+//        curried formation          val divide = (num:Double)=>(den:Double) => {num/den}
+//        anymous function           (num:Double)=>(den:Double) => {num/den}
+
 // Note:  val div =divide.curried convert a function div(a,b) into curry function div(a)(b) who assigned variable type Int=>Int=>Int
 // Note   => is apply method while left hand side is input parameters and right hand side is output values
 //        each anymmous function is a function object defined as below, compilter sugar coats the syntax as above
@@ -39,11 +38,10 @@
 // Note:  A partical function is a subtype of function and can be assigned to function variable
 // Note:   AU constructor is defined as,  def this(crustType: String) {this(Pizza.DEFAULT_CRUST_SIZE, crustType)}
 
-  val divide0 = (num: Double, den: Double) =>{
-   num / den
-}
-println(divide0(9,4))
-println(divide0.apply(9,4))
+  val divide0 = (num: Double, den: Double) => { num / den }
+  println(divide0(9,4))
+  println(divide0.apply(9,4))
+
 // the compiler interprete it as divide.apply(9,4)
 // (Double,Double)=>Double tells us about the apply function since a function is an object containing apply function
 // , its a variable function takes two Double parameter
@@ -56,46 +54,47 @@ println(divide0.apply(9,4))
 //  Divide0(2,4).  once we use () with variable name. the function is access
 //  if function contains  variablename ->Function2 ->Function2
 //  then object will be access by varname ()()
-val divide1:(Double,Double) =>Double = (num: Double, den: Double) =>{
-  num / den
-}:Double
-println (divide1(9,4))
+
+  val divide1:(Double,Double) => Double = (num: Double, den: Double) =>{ num / den }:Double
+  println (divide1(9,4))
 
 // function parameters are passed by datatype and by position
 //  this is nearly same like as in PL/SQL
 // since (_) is used the type will be infered from the assignment variable or from higher order function to which its passed
-val f2:(Int,Int)=>String = "The first int is " + (_) + " and the second int is " + (_)
-val f3 = "The first int is " + (_:Int) + " and the second int is " + (_:Int)
+
+  val f2:(Int,Int)=>String = "The first int is " + (_) + " and the second int is " + (_)
+  val f3 = "The first int is " + (_:Int) + " and the second int is " + (_:Int)
 
 // returns "The first int is 1 and the second int is 2"
 // here position of 1 is 1 and type is Int so its been assigned to first and 2
 // is assigned to second (_:Int)
-f2(1, 2)
 
+  f2(1, 2)
 
-// here divide11 is being assigned  a partical function coming from case. there is not
-// function here
+// here divide11 is being assigned  a partical function coming from case. there is not function here
 // its apply method contains (num, den) of input type (double, double)
-val divide11:(Double,Double) =>Double = {
- case (num, den)=> num / den
-}
 
-val divide1111:Function2[Double,Double,Double] = {
-  case (num, den) => num / den
-}
-println(divide1111(2,4))
+  val divide11:(Double,Double) =>Double = { case (num, den)=> num / den }
+  val divide1111:Function2[Double,Double,Double] = { case (num, den) => num / den }
+  println(divide1111(2,4))
 
 // here we have assinged a function to divide111 and partical function to
 // function,  here a partical function is being assigned to a function based on condition satsified
-val divide111:(Double,Double)=>Option[Double]= {
-  case (num, den) if den!=0 => Some(num / den)
-  // cannot put more that one case statement as case statement is used for unpacking not for pattern matching
-  //case(_, den) if den==0 => None
-}
 
-println(divide111(2,0))
+  val divide111:(Double,Double)=>Option[Double]= {
+  // a case statement is like an if statement in Functional programming since functional programing is based on
+  // calculus where element has type with condition where a function is defined as
+    // f(x) ={ div(x) for all value of v belong to tuple and divisor!=0  }
+
+  case (num, den) if den!=0 => Some(num / den)
+  }
+
+// cannot put more that one case statement as case statement is used for unpacking not for pattern matching
+//case(_, den) if den==0 => None
+  println(divide111(2,0))
 
 // here the partical function is being assigned based on matching x values
+
 val g:PartialFunction[Int,Int]= (x: Int) => {x match { case 2 => 3 }}
 val g11:Function1[Int, Int]= (x: Int) => {val x1=x+1; x1 match { case 2 => 3 }}
 val g12:Int=>Int = (x: Int) => {val x1=x+1; x1 match { case 2 => 3 }}
@@ -125,9 +124,9 @@ val divide4:(Double, Double)=>Double = new Function2[Double,Double,Double] {
   }
 }
 
-/***********************
+/******************************************
 *  function declaration different ways
-* ******************/
+* *****************************************/
 // in case function parameters are not defined. their
 // parameter type is determined by Int=>Int.
 val m5_4 = {n=> n*5}:Int=>Int
@@ -157,28 +156,37 @@ val m5_6 = (n: Int) => {
 // to execute that code you have to refrence the object two times
 // for example dividecurr(4) will return a function. which is assigned to a variable halfOfCurr3
 // and when halfOfCurr3(2) is refrenced the function will be executed
-val dividecurr0 =(num: Double) => (den:Double)=>{
-  num / den
-}
+
+val dividecurr0 =(num: Double) => (den:Double)=>{ num / den }
+
 println("****************************")
 println(dividecurr0(2)(4))
 println("****************************")
 
 //  value function can be converted into curry function
+
 val divideCurr:Double => Double => Double= divide0.curried
+
 // *** val divide0 = (num: Double, den: Double) =>num / den ***
 // adding _ adds another function object to halfOfCurr0 and it
 // becomes () => Double => (Double => Double)
 // with halfOfCurr0 _ is not needed since it create apply function inside apply
+
 val halfOfCurr0= divideCurr _
+
 // the right code is,  it just assign the object to the variable without _
 // this is because divideCurr is already an anyonmous function
 //  in case of def we must add _ to convert method to aynonmous function
+
 val halfOfCurr5= divideCurr
+
 // first object is refrenced so from  Double => (Double => Double)
 // it become  Double => Double
+
 val curr =halfOfCurr5(2)
+
 // final function object is refrence with parameter and we get result
+
 println(curr(4))
 
 // divideCurr: Double => (Double => Double)
@@ -196,14 +204,19 @@ println(curr(4))
   // if it finds certain parameter e.g 4 and _ , its been applied as nothing to poistion 1
   /// 4 to position 2.  on furction where nothing is applied,  its object is returned to
   //  variable.  in others works its function type is return which is Double => Double
+
 val halfOfCurr1:(Double)=>Double = divideCurr(_)(4)
+
 // divideCurr(2)(_) = divideCurr(2)
 // this is a difference between (_) and _
 // (_) return on function part containing () while _ returned the whole
+
 val halfOfCurr2:(Double)=>Double = divideCurr(2)(_)
 val halfOfCurr3:Double=>Double = divideCurr(2)
+
 // here function1[Int,Int] applied therefore second
 // function1[Int,Int] returned
+
 val halfOfCurr4 = dividecurr0(2)
 //
 // variable type divideCurr return types define halfOfCurr5 type
@@ -223,10 +236,15 @@ halfOf2(20)
   *  scala methods
   **********************************/
 def add3(a:Int, b:Int) =a+b
+
 // (_,_) is equivalent of _
+
 val testadd = add3(_,_)
+
 // is same as _ convert method into function
+
 val testadd01 =add3 _
+
 // without the variable types defined it will give error
 val comadd01:Int=>Int =add3(3,_)
 // following function is add4 - function object - function object
@@ -271,7 +289,7 @@ val fAndThenG = f _  andThen g _
 fAndThenG("yay")
 
 // how curried function and partically applied function are being used.
-def add(a: Int)(b: Int) = a + b
+def add(a: Int)(b: Int):Int = a + b
 val onePlusFive = add(1)(5) // 6
 // _ means get type from parent here parent type is a function
 // _ converts a method into aynonmous function

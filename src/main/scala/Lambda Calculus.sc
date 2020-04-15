@@ -1,16 +1,16 @@
 // 1.  A function in Lambda calculus is a pure function, if,  it has no
-//          side effects.  means external OR global variable dont change its output given the same input
-//          in short it does not accesses the global variable,
-//          if we have to access global variable in a function we can still accomplish this by making state value
-//          (global variable) immutable in class or in tuples
-//          Referential transparency means for each values of x there is a value of y ie x=>Y.
+//     side effects.  means external OR global variable dont change its output given the same input
+//     in short it does not accesses the global variable,
+//     if we have to access global variable in a function we can still accomplish this by making state value
+//     (global variable) immutable in class or in tuples
+//     Referential transparency means for each values of x there is a value of y ie x=>Y.
 //     ---------------------------------
 //     A pure function characteristic
 //       1.  a pure function does not change global state
 //       2.  does not change function arguments
 //       3.  result depends on arugments
 //
-//      let there be a function  y=f(x)  where x belong R. x is an independent variable, y is dependent variable and
+//      let there be a function  y=f(x)  where x belong R (giving type). x is an independent variable, y is dependent variable and
 //      f is a function name.  this can be written in scala as
 //
 //      def f(x:Type)={}   where {} is y   means
@@ -20,6 +20,15 @@
 //      in a pure functions argument cannot be modified. that why we cannot give var or val in function parameters
 //      in pure functions parameters neither you can set values or you can get value.  Therefore
 //      def sqr(val x:Int) ={x**2} is a syntax error
+//
+//      in Functional programming all functions are first class first class functions means
+//      1.  They can be assigned to a variable
+//      2.  they can be passed as argument to a function
+//      3.  they can be returned as function.
+//
+//      in scala def add(a,b) =a+b is a method not function.  its not part of functional programming its part of scala
+//      object oriented system.  means add method cannot be assigned to variable. its not a first class function,  while
+//      (a,b) => a+b is a function and can be assigned to a variable since its part of functional programming
 /////////////////////////////////////////////////////////////////////
 // 2.  Higher order functions take other functions as parameters or return a function as a result
 //      h(x) = f(g(x))
@@ -191,13 +200,16 @@ def addTototal02(x:Int) ={
 
 // anonymous function assigned to a variable.  here the anonymous function is (num: Double, den: Double) =>{num / den}
 // (num: Double, den: Double) is input type
+
 val divide0 = (num: Double, den: Double) => { num / den }
 println(divide0(9,4))
 println(divide0.apply(9,4))
+
 // in same way any function return Unit is not a pure function. means a function which does not return any value
 /////////////////////////////////////////////////////////////////////////////////
 /// however the same function is pure function because totalM is immutable
 /////////////////////////////////////////////////////////////////////////////////
+
 val totalM =10
 def addTototalM(x:Int)={
   x+totalM
@@ -224,6 +236,7 @@ def addTototalM(x:Int)={
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Since scala is a functional programming language it support recursion more and loop less
 ///////////////////////////////////////////////////////////////////////////////////////
+// a recursive function is a partical function which is cyclic
 def factorial(n: Int): Int = if (n == 0) 1 else n * factorial(n-1)
 
 // the recursion work by add the calucation elements building a function untill all values are available.
