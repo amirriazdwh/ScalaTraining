@@ -251,7 +251,7 @@ val comadd01:Int=>Int =add3(3,_)
 //  (a:Int , b:int) define a function object Function2
 // def add4 (a:Int, b:Int) says create a variable and
 // variable should have function2[Int, Int],  this means (Int, Int)=>Int is just a type like double and Int
-def add4(a:Int , b:Int)=(a:Int,b:Int)=>{a+b}
+
 def add55:(Int, Int )=>Int={case (a,b)=>a+b}
 def add5 = new Function2[Int, Int, Int] {
   def apply(a:Int, b:Int): Int ={
@@ -316,6 +316,10 @@ List(1,2,3,4).reduce(_+_)
 //List((1,2),(3,4),(5,6),(7,8)).map()
 // this is awesome
 for(i<- 1 to 2) yield List(1,2,3,4).map(add(i)_)
+
+// yield is a generator which pipes they values of i to another expression. which is being access in expression by i
+// [x for x in rang(1,10)] in python here value of x is yield into another x expression
+for(i<- 1 to 2) yield { List(1,2,3,4).map(add(i)_) }
 
 def addTest1(a: Int)(b: Int) = a + b
 // how currying function works

@@ -71,11 +71,23 @@
 //
 //     val varName:(Type,Type)=>Type =(x:Type)=>{}:Type
 //
+//      in Functional programming all functions are first class first class functions means
+//      1.  They can be assigned to a variable
+//      2.  they can be passed as argument to a function
+//      3.  they can be returned as function.
+//
+//     Note:  that def add(a,b) = a+b is a method and not part of functional programming but part of object orient system.
+//     therefore its not a first order function.  therefore it cannot be assigned to a variable.  however we can convert
+//     a method into function and assigned it to a variable.  this is being done by _ Eta function.
+//     val fadd = add _  now fadd is a first order function.
+//     in short y=f(x) is method in scala and x=>y is function. they both are same thing in mathematics so y=f(x) can be
+//     converted into x=> y
+//
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
 //     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
 //
-//     z = f(x,y) =x + y**2 is a function. a currying function translate into f(x,y) =h(x)(y) then
+//     z = f(x,y) =x + y**2 is a method. a currying function translate into f(x,y) =h(x)(y) then
 //     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied function or pure function
 //     a partially applied function gets its value from implicits automatically
 //     a function to give result all its values must be applied. so partically applied function is also used to delay
@@ -89,6 +101,12 @@
 //     so scala curry method is defined as    f(x:Type)(y:Type)={}        means  def f(x:Int)(y:Int)={x+y}
 //     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means (x:Int)=>(y:Int)=>{x+y}
 //
+//     Note:  _ converts a partically applied method to a partically applied function.  means
+//     val x = f(2) _  is a valid expression
+//     f(2) _ is a currying partically applied method which is being converted into partically applied
+//     currying funcition by _ eta expression
+//     in case of currying function.  we can assign it variable.  as currying functions are first class functions.
+//     val x = f(2)   is a valid expression as f(2) is a functions and can be assigned to a variable
 ////////////////////////////////////////////////////////////////////////////////////////
 // 5.  in Lambda calculus function cannot be evaluated until its bind to a certain
 //     variable.  so if a function has two variable f(x, y) we can delay its execution
@@ -226,6 +244,12 @@ def addTototalM(x:Int)={
        def f(x:Int)(y:Int)={x+y}
 //     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means
        (x:Int)=>(y:Int)=>{x+y}
+
+//here conversion from method to function occur due to variable type given and it happens without Eta function
+// if Int => (Int=>Int) is not given then conversion will not happen
+
+def add(a: Int)(b: Int):Int = a + b
+val addFiveDf:Int => (Int=>Int)=add
 
 
 // A common definition of function between two sets (or between two classes, when working in GBN) is based on the notion of
