@@ -1,8 +1,7 @@
 // the reason we use yield in scala programming is yield is a pure function
 // anything for () {} makes has side effect and may not return anything which is against functional programming
 var dList =for (i <- List(1,2,3); y=i*i) yield (y*2)
-var x3=for (x <- List(1,2,3,4,5); y=x*x) yield (y*x)
-
+var x3=for (x <- List(1,2,3,4,5); y=x*x) yield (y*x))
 
 //def average = for { s <- sum[Double]; c <- count } yield s/c
 //for {
