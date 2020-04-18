@@ -8,7 +8,7 @@
 //     A pure function characteristic
 //       1.  a pure function does not change global state
 //       2.  does not change function arguments
-//       3.  result depends on arugments
+//       3.  result depends on arguments
 //
 //      let there be a function  y=f(x)  where x belong R (giving type). x is an independent variable, y is dependent variable and
 //      f is a function name.  this can be written in scala as
@@ -48,6 +48,7 @@
 //     first order function
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
+/////////////////////////////////////
 //     anonymous function is defined as the function which dont have any name.
 //
 //     for example z=f(x,y) is a pure function here x is input f is the function name and z is output variable
@@ -84,43 +85,89 @@
 //     converted into x=> y
 //
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 4.  in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
-//     currying also being used for creating partically applied functions g(x)(_) or g(x) with (y) missing
+// 4. Currying Functions and Partially Applied Functions
+/////////////////////////////////////////////////////////
+// in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
+//     currying also being used for creating partially applied functions g(x)(_) or g(x) with (y) missing
 //
 //     z = f(x,y) =x + y**2 is a method. a currying function translate into f(x,y) =h(x)(y) then
 //     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied function or pure function
 //     a partially applied function gets its value from implicits automatically
-//     a function to give result all its values must be applied. so partically applied function is also used to delay
+//     a function to give result all its values must be applied. so partially applied function is also used to delay
 //     the execution.
 //
 //     z =h(2)(_)=f(2,3) means h(2)(_)=2 + _**2 and h(2)(3) =2+3**2
 //
 //     z=f(x,y) is a function  and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
-//     so it can be reprsented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
+//     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
 //
 //     so scala curry method is defined as    f(x:Type)(y:Type)={}        means  def f(x:Int)(y:Int)={x+y}
 //     a anonymous function is defined as     (x:Type)=>(y:Type)=>{}:Type  means (x:Int)=>(y:Int)=>{x+y}
 //
-//     Note:  _ converts a partically applied method to a partically applied function.  means
+//     Note:  _ converts a partially applied method to a partially applied function.  means
 //     val x = f(2) _  is a valid expression
-//     f(2) _ is a currying partically applied method which is being converted into partically applied
-//     currying funcition by _ eta expression
+//     f(2) _ is a currying partially applied method which is being converted into partially applied
+//     currying function by _ eta expression
 //     in case of currying function.  we can assign it variable.  as currying functions are first class functions.
 //     val x = f(2)   is a valid expression as f(2) is a functions and can be assigned to a variable
+//     ////////////////////////////////////////////////
+//      USE OF Curry And Partially Applied Functions
+//     ////////////////////////////////////////////////
+//     in mathematics all function are expression so they can be assigned to a variable.  in mathematics  we can create
+//     new function or specialized functions using generalized function.  the currying function converts a generalized
+//     function into specialized function.
+//
+//      The following two are the Generalized solution of division and addition
+//
+//      val div =(a:Double)=>(b:Double) => a/b
+//      def add(a:Int)(b:int) = a+b
+//
+//      in mathematics general function creates concrete functions add is general but
+//      increment is its specialized form. This is the use of currying functions
+//      _ converts y=f(x) to x=>y which is a mathematical function and can be assigned to variable
+////
+//      val incOne = add(1) _
+//
+//      in same way,  the division with one parameter =1 become inverse function.
+//
+//      val inv = div(1.0)
+//
+//      Functions can be called as
+//      val tenPlusOne = incOne(10)
+//      val invTen = inv(10)
 ////////////////////////////////////////////////////////////////////////////////////////
 // 5.  in Lambda calculus function cannot be evaluated until its bind to a certain
 //     variable.  so if a function has two variable f(x, y) we can delay its execution
-//     till end by using _,  the phenonmon is called partically applied functions
+//     till to the end by using _,  the phenomena is called partially applied functions
 ///////////////////////////////////////////////////////////////////////////////////////
-// 6   partial functions are used as a tool to perform different tasks.  like pattern matching and if else logic
+// 6.  Partial Function
+//////////////////////////
+//  H(t)a,b  is a Partial function with case environment a and b.  if a=5 and b=8 then partial case function H(t)58 is selected
+//  when a=9 and b=1 then partial case function H(t)91 is select and so on. in short, partial function is actually created a
+//  conditional programming environments.  they are used for if and else functionality
+//
+//              { H(t)58  where a=5 and b=8 }
+//    H(t)a,b  ={ H(t)91  where a=9 and b=1 }
+//              { H(t)33  where a=3 and b=3 }
+//
+//    H(t)58 is a case function because its selection is based on case environments. therefore a partial function
+//    contains multiple case functions.  H(t)a,b is a function,  in same way, H(t)58,H(t)91 and H(t)33 are also functions
+//
+//     partial functions are used as a tool to perform different tasks.  like pattern matching and if else logic
 //     a partial function is defined as,  f:R->R
 //             { x**2  if x<0   }
 //      f(x) = { x     if x=0   }
 //             { x*x   if x >0  }
 //
 //     for different values of x different functions are selected.  this is like pattern matching in scala and
-//     the case statement. where x match { case x if x=0 => x**3}
+//     the case statement. where
 //
+//    def parFun(x:Int ) = x match { case x:Int if x<0 => x*2
+//                                   case x:Int if x==0 => x
+//                                   case x:Int if x>0 => x*x
+//                                  }
+//
+//////////////////////////////////////////////////////////////////////////////////////////////
 // 7.  partial function to pack and unpack a values.
 //    (a,_) =tuple(2,3)
 //////////////////////////////////////////////////////////////////////////////
@@ -281,10 +328,3 @@ factorial(5)
 //  dont have if else.  conditional logic is being processed by partial function.  which is a like a case statement.
 //
 //
-// H(t)a,b  is a function with case environ a and b.  if a=5 and b=8 then partical function H(t)58 is selected
-// when a=9 and b=1 H(t)91 is select and so on. you can see that partial function is actually created a
-// conditional programming environments.
-//
-//             { H(t)58  where a=5 and b=8 }
-//   H(t)a,b  ={ H(t)91  where a=9 and b=1 }
-//             { H(t)33  where a=3 and b=3 }

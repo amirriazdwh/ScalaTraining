@@ -17,10 +17,12 @@
 case class PhoneExt(name: String, ext: Int)
 case class Phone(name: String, address: String, number: Int)
 
+val PhoneExt(name, _) = PhoneExt("Amir Riaz",23444)
+
 val extensions = List(PhoneExt("steve", 100), PhoneExt("robey", 200))
 
 // use {} when case is being used.
-extensions.filter { case PhoneExt(name, extension) => extension < 200}
+extensions.filter { (I:PhoneExt) => I.ext < 200}
 extensions.filter { case PhoneExt(name, extension) => extension < 200
                     case _ => false}
 
