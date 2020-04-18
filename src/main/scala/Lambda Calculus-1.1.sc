@@ -48,7 +48,7 @@
 //     first order function
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 3.  anonymous and Lambda functions
-/////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //     anonymous function is defined as the function which dont have any name.
 //
 //     for example z=f(x,y) is a pure function here x is input f is the function name and z is output variable
@@ -85,13 +85,19 @@
 //     converted into x=> y
 //
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 4. Currying Functions and Partially Applied Functions
-/////////////////////////////////////////////////////////
-// in lambda calculus a function can have only one variable,  to use multiple variable we use currying g(x)(y)
+// 4. Currying Functions and Partially Applied Functions (all functions are currying functions)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     in lambda calculus a function can have only take one argument ,  to use multiple argument we use currying
+//     let z=f(x,y) is a function and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
+//     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function in pure form
+//
+//     in same way Partially applied function as defined as let f(x,y) is a function on f:R->R
+//     f(x+y) =f(x)+f(y) then partially applied function is defined as  f(* + y) = f(*)+f(y)
+//
 //     currying also being used for creating partially applied functions g(x)(_) or g(x) with (y) missing
 //
 //     z = f(x,y) =x + y**2 is a method. a currying function translate into f(x,y) =h(x)(y) then
-//     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied function or pure function
+//     h(2)(y)= 2 + y**2 is called partially applied function.  while f(2,3) =2+3**2 is fully applied pure function
 //     a partially applied function gets its value from implicits automatically
 //     a function to give result all its values must be applied. so partially applied function is also used to delay
 //     the execution.
@@ -125,7 +131,7 @@
 //      in mathematics general function creates concrete functions add is general but
 //      increment is its specialized form. This is the use of currying functions
 //      _ converts y=f(x) to x=>y which is a mathematical function and can be assigned to variable
-////
+//
 //      val incOne = add(1) _
 //
 //      in same way,  the division with one parameter =1 become inverse function.
@@ -135,13 +141,30 @@
 //      Functions can be called as
 //      val tenPlusOne = incOne(10)
 //      val invTen = inv(10)
-////////////////////////////////////////////////////////////////////////////////////////
-// 5.  in Lambda calculus function cannot be evaluated until its bind to a certain
-//     variable.  so if a function has two variable f(x, y) we can delay its execution
-//     till to the end by using _,  the phenomena is called partially applied functions
-///////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 5.     Partially Applied Functions and methods
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  Methods
+////////////////
+//    def add(a:Int,b:Int) = a+b
+//
+//    type with variable tell the return function
+//    val inc:Int=>Int = add(1,_)    // a method is not a pure function so cannot be assigned to variable
+//                                    // _ converts the method to function which can be assigned to variable _ = (_,_)
+//    def add(a:Int)(b:Int)=a+b
+//    val inc =add(1) _
+//
+////////////////
+//  Functions
+///////////////
+//   val add= (a:Int, b:Int)=>a+b
+//   val inc:Int=>Int = add(1,_)    // here _ is a place holder of argument
+//
+//  val add= (a:Int)=>(b:Int)=>a+b
+//   val inc = add(1)              // function is assigned to variable to _ not needed for conversion
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 6.  Partial Function
-//////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  H(t)a,b  is a Partial function with case environment a and b.  if a=5 and b=8 then partial case function H(t)58 is selected
 //  when a=9 and b=1 then partial case function H(t)91 is select and so on. in short, partial function is actually created a
 //  conditional programming environments.  they are used for if and else functionality
@@ -192,9 +215,7 @@
 //   def increaseAll(values: List[Int]): List[Int] =
 //   {
 //     val k = 2
-//
 //     def addConstant(v: Int): Int = v + k
-//
 //     values.map(addConstant)
 //   }
 //
@@ -285,7 +306,7 @@ def addTototalM(x:Int)={
 //////////////////////////////////////////////////////
 
 //     z=f(x,y) is a function  and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
-//     so it can be reprsented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
+//     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
 //
 //     so scala curry method is defined as    f(x:Type)(y:Type)={}        means
        def f(x:Int)(y:Int)={x+y}

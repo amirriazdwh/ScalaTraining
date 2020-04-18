@@ -245,7 +245,7 @@ val testadd = add3(_,_)
 
 val testadd01 =add3 _
 
-// without the variable types defined it will give error
+// without the variable type it will give error
 val comadd01:Int=>Int =add3(3,_)
 // following function is add4 - function object - function object
 //  (a:Int , b:int) define a function object Function2
