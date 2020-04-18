@@ -91,9 +91,6 @@
 //     let z=f(x,y) is a function and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
 //     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function in pure form
 //
-//     in same way Partially applied function as defined as let f(x,y) is a function on f:R->R
-//     f(x+y) =f(x)+f(y) then partially applied function is defined as  f(* + y) = f(*)+f(y)
-//
 //     currying also being used for creating partially applied functions g(x)(_) or g(x) with (y) missing
 //
 //     z = f(x,y) =x + y**2 is a method. a currying function translate into f(x,y) =h(x)(y) then
@@ -144,24 +141,36 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 5.     Partially Applied Functions and methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//     in same way Partially applied function as defined
+//     let f(x,y) is a function on f:R->R
+//     f(x+y) =f(x)+f(y) then partially applied function is defined as  f(* + y) = f(*)+f(y)
+//
+////////////////
 //  Methods
 ////////////////
+//
 //    def add(a:Int,b:Int) = a+b
 //
-//    type with variable tell the return function
-//    val inc:Int=>Int = add(1,_)    // a method is not a pure function so cannot be assigned to variable
-//                                    // _ converts the method to function which can be assigned to variable _ = (_,_)
+//    a method is not a pure function so cannot be assigned to variable
+//    _ converts the method to function which can be assigned to variable _ = (_,_)
+//
+//    val inc =add _                //
+//    val inc:Int=>Int = add(1,_)   // _ is for place holder ,  Int=>Int convert method to function its an explict form
+//    val inc =add(1, _:Int)        // _ is place hold and conversion with :Int indicating the conversion type implicit form
+//
 //    def add(a:Int)(b:Int)=a+b
-//    val inc =add(1) _
+//    val inc =add(1) _            // here second function return type known so _ converts method to function
 //
 ////////////////
 //  Functions
 ///////////////
+//
 //   val add= (a:Int, b:Int)=>a+b
 //   val inc:Int=>Int = add(1,_)    // here _ is a place holder of argument
 //
 //  val add= (a:Int)=>(b:Int)=>a+b
-//   val inc = add(1)              // function is assigned to variable to _ not needed for conversion
+//   val inc = add(1)              // function is assigned to variable to _ not needed for conversion or as place holder
+//
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 6.  Partial Function
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
