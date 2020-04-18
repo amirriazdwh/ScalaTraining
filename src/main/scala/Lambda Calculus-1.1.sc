@@ -277,12 +277,14 @@ factorial(5)
 //               5 * (4 * (3 * (2 * (1 * 1))))
 //                 120
 //
-// H(t)a,b  is a partial function with case environ a and b.  if a=5 and b=8 H(t)58 is selected when a=9 and b=1 H(t)91 is select
-// and so on. you can see that partial function is actually created a conditional programming environments.
+// in function programming there is no for loop ,  the looping is being done by recursion.   in same way,  FP
+//  dont have if else.  conditional logic is being processed by partial function.  which is a like a case statement.
+//
+//
+// H(t)a,b  is a function with case environ a and b.  if a=5 and b=8 then partical function H(t)58 is selected
+// when a=9 and b=1 H(t)91 is select and so on. you can see that partial function is actually created a
+// conditional programming environments.
 //
 //             { H(t)58  where a=5 and b=8 }
 //   H(t)a,b  ={ H(t)91  where a=9 and b=1 }
 //             { H(t)33  where a=3 and b=3 }
-
-// in function programming there is no for loop ,  the looping is being done by recursion.   in same way,  FP
-//  dont have if else.  conditional logic is being processed by partial function.  which is a like a case statement.

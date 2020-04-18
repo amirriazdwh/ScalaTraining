@@ -198,7 +198,7 @@ val greaterThan20: PartialFunction[Any, Int] = {
 
 List(1, 45, 10, "blah", true, 25) collect greaterThan20
 
-
+/*
 Convert flatMap with partial function to collect
   // Before
   seq.flatMap {
@@ -210,6 +210,7 @@ Convert flatMap with partial function to collect
 seq.collect {
   case P => ??? // x N
 }
+ */
 
 
 
