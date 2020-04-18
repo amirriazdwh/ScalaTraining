@@ -23,6 +23,8 @@ val extensions = List(PhoneExt("steve", 100), PhoneExt("robey", 200))
 
 // use {} when case is being used.
 extensions.filter { (I:PhoneExt) => I.ext < 200}
+// case just tell the compiler that function is multiple partial functions based on environment case
+// if we remove case we can only give one function which will be a pure function.
 extensions.filter { case PhoneExt(name, extension) => extension < 200
                     case _ => false}
 

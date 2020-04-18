@@ -7,7 +7,8 @@
 //     ---------------------------------
 //     A pure function characteristic
 //       1.  a pure function does not change global state
-//       2.  does not change function arguments
+//       2.  does not change function arguments,  any argument in () is immutable, variable can be changed in { }
+//           since variable are immutable in () we dont specify var or val inside ()
 //       3.  result depends on arguments
 //
 //      let there be a function  y=f(x)  where x belong R (giving type). x is an independent variable, y is dependent variable and
@@ -72,12 +73,12 @@
 //
 //     val varName:(Type,Type)=>Type =(x:Type)=>{}:Type
 //
-//      in Functional programming all functions are first class first class functions means
+//      in Functional programming all functions are first class functions while method are not
 //      1.  They can be assigned to a variable
 //      2.  they can be passed as argument to a function
 //      3.  they can be returned as function.
 //
-//     Note:  that def add(a,b) = a+b is a method and not part of functional programming but part of object orient system.
+//     Note:  that def add(a,b) = a+b is a method and is not part of functional programming but part of object orient system.
 //     therefore its not a first order function.  therefore it cannot be assigned to a variable.  however we can convert
 //     a method into function and assigned it to a variable.  this is being done by _ Eta function.
 //     val fadd = add _  now fadd is a first order function.
@@ -192,16 +193,64 @@
 //             { x*x   if x >0  }
 //
 //     for different values of x different functions are selected.  this is like pattern matching in scala and
-//     the case statement. where
+//     the case statement.
 //
+//    a function can only contain one pure function,  to add multiple partial function we add case keyword and logically
+//    // if condition
 //    def parFun(x:Int ) = x match { case x:Int if x<0 => x*2
 //                                   case x:Int if x==0 => x
 //                                   case x:Int if x>0 => x*x
 //                                  }
+//  case class PhoneExt(name: String, ext: Int)
+//  val extensions = List(PhoneExt("steve", 100), PhoneExt("robey", 200))
 //
-//////////////////////////////////////////////////////////////////////////////////////////////
-// 7.  partial function to pack and unpack a values.
-//    (a,_) =tuple(2,3)
+//  unpacking method 1
+//  extensions.filter { (I:PhoneExt) => I.ext < 200}
+//
+// case just tell the compiler that function has multiple partial functions based on environment case
+// if we remove case we can only give one function which will be a pure function. if you have multiple
+// matching based on type and environment case.   then you can use case keyword
+//
+//  unpacking method 2
+//  extensions.filter { case PhoneExt(name, extension) => extension < 200
+//                      case _ => false
+//                      }
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 7. pack and unpack a values.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  Packing a value in type
+////////////////////////////
+//
+//  two int are being packed in tuple.  a tuple is a case class so it does not need new operator to create an object
+//  case class represents types in scala
+//
+//  val t = (2,3)
+//
+//  // define a custom type
+//  case class PhoneExt(name: String, ext: Int)
+//
+//  val phone = PhoneExt("Amir",0971)  // apply method in companion class in case a class create object by new operator
+//
+///////////////////////////////
+//  Unpacking a value of type
+///////////////////////////////
+//
+//  A common definition of function between two sets (or between two classes, when working in GBN) is based on the notion
+//  of "ordered pair". An ordered pair is some set-theoretic construction, denoted "(a,b)" where a and b are sets,
+//  with the property that (a,b)=(c,d) if and only if a=c and b=d.
+//
+//    val (a,_) =(2,3)
+//    val (a,b) =(2,3)  // means a=2 and b=3 as per theorem  where (a,b) belong to tuple
+//
+//   case class PhoneExt(name: String, ext: Int)
+//
+//   here name ="Amir" and extension =0971 and type PhoneExt
+//   val PhoneExt(name, extension) = PhoneExt("Amir",0971)
+//
+//   PhoneExt is with (name,extension) to show the type. in case of tuple this type is implicit
+//
+//  unapply method in case class unpacks the object
 //////////////////////////////////////////////////////////////////////////////
 //8.  The term closure comes from the fact that a piece of code (block, function) can have free variables that are
 //   closed (i.e. bound to a value) by the environment in which the block of code is defined.
@@ -329,10 +378,6 @@ def add(a: Int)(b: Int):Int = a + b
 val addFiveDf:Int => (Int=>Int)=add
 
 
-// A common definition of function between two sets (or between two classes, when working in GBN) is based on the notion of
-// "ordered pair". An ordered pair is some set-theoretic construction, denoted "(a,b)" where a and b are sets, with the property
-// that (a,b)=(c,d) if and only if a=c and b=d. There are many ways of achieving this; the most common is the Kuratowski
-// definition of ordered pair:
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Since scala is a functional programming language it support recursion more and loop less

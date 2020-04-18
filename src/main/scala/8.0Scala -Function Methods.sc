@@ -263,7 +263,7 @@ def div6(a:Double, b:Double)=divide0(a, b)
 def add0(a:Int)=(b: Int) => a + b
 def add1(a:Int)(b:Int)= a+b
 
-println(add4(4,2))
+//println(add4(4,2))
 println(add55(4,2))
 println(add5(4,2))
 println(div6(4,2))
