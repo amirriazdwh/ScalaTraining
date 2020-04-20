@@ -403,3 +403,11 @@ factorial(5)
 //  dont have if else.  conditional logic is being processed by partial function.  which is a like a case statement.
 //
 //
+//f => g => x => f(g(x))             // Curried function composition
+
+val f = ((_: Int) + 1) andThen (_.toString)
+//f: Int => java.lang.String = <function1>
+
+ // scala>
+f(34)
+// res14: java.lang.String = 35

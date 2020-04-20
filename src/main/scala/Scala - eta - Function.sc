@@ -4,6 +4,24 @@
 //  * means zero or many expressions
 //  case _ => means take some type as arugment and it will match all the times
 
+// The _ (underscore) means that the digits after S must be followed immediately by only an underscore character
+// in the zone name. In this example, the zone naming convention uses the underscore to separate the zone name
+// from the host name.
+
+// We would like to use the underscore syntax _ to stand for an anonymous type parameter, aligning it with its
+// meaning in value parameter lists. So, just as f(_) is a shorthand for the lambda x => f(x),
+// in the future C[_] will be a shorthand for the type lambda [X] =>> C[X]. This makes higher-kinded
+// types easier to use. It also removes the wart that, used as a type parameter, F[_] means F is a type
+// constructor whereas used as a type, F[_] means it is a wildcard (i.e. existential) type. In the future,
+// F[_] will mean the same thing, no matter where it is used.
+
+// NOTE:  _ means anonymous.   which can be type, value, function, argument, packages, class,
+//          to understand the meaning of _ we must look into the section where its been defined.
+//          if the _ is in variable section,  its anonymous variable.    if its in function arugment its
+//          says argument name is unknown. if its in type place,  we say type is anonymous.
+//          if its method _ means method is anonymous.  _*  means sequence iterator whose elements can be of any type
+// NOTE:  _ means sequence,  in mathematics means zero or more elements
+
 import scala._                    // Wild card -- all of Scala is imported
 import scala.{ Predef => _, _ }   // Exception, everything except Predef
 def f[M[_]]                       // Higher kinded type parameter
