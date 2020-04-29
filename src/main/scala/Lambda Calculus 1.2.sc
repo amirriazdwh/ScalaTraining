@@ -1,7 +1,7 @@
 //////////////////////////////////
 //  What is a case class and its methods
 /////////////////////////////////
-//  A case class is called name tuple.
+//  A case class is called name tuple.   case class Tuple2[A, B](_1: A, _2: B)
 //  A case class is used to define a part of disjoint set.  if C is a set and A and B are joint.  then A and B
 //  will be selected under certain conditions.
 //  The A part is defined as  Case class A(x:Type) and B is defined as case Case class B(x:Type) where A and B extend C
