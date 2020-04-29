@@ -76,7 +76,9 @@ println(p0.toString)
 case class personCase ( var id:Int,
                     var name:String,
                     var Address:String,
-                    var age:Int)
+                    var age:Int){
+  def incrId = this.id+1
+}
 
 
 var p = personCase(1001, "Amir Riaz", "discovery", 20)
@@ -93,9 +95,15 @@ var id01 = personCase.unapply(p)
 println(id)
 println(id01.get)
 
-// class extractors
-val tuple = ('a', 1)
-val (char, digit) = tuple
+def findid(x:personCase):Option[Int] ={
+  x match {
+    case personCase(1001, _,_,_) => Some(x.id)
+    case personCase(1002,_,_,_) =>Some( x.id)
+    case _ => None
+  }
+}
+print("the value is "+findid(p))
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Utility class. class may not needed. an object without class is called stand alone object
 ////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,11 +1,14 @@
-// 1.  A function in Lambda calculus is a pure function, if,  it has no
-//     side effects.  means external OR global variable dont change its output given the same input
-//     in short it does not accesses the global variable,
-//     if we have to access global variable in a function we can still accomplish this by making state value
-//     (global variable) immutable in class or in tuples
-//     Referential transparency means for each values of x there is a value of y ie x=>Y.
+// 1.  A function in Lambda calculus is a pure function, if,
+//     1.  it has no side effects.  means external OR global variable dont change its output given the same input
+//         in short it does not accesses the global variable,
+//         if we have to access global variable in a function we can still accomplish this by making state value
+//         (global variable) immutable in class or in tuples
+//     2. The function is deterministic means
+//        Referential transparency holds for each values of x there is a value of y ie x=>Y (y=f(x) may not be a pure
+//        function).  for same value of x we get the same value of y.  Means it does not have side effects
+//
 //     ---------------------------------
-//     A pure function characteristic
+//     A pure function characteristic in programming language
 //       1.  a pure function does not change global state
 //       2.  does not change function arguments,  any argument in () is immutable, variable can be changed in { }
 //           since variable are immutable in () we dont specify var or val inside ()
@@ -14,7 +17,8 @@
 //      let there be a function  y=f(x)  where x belong R (giving type). x is an independent variable, y is dependent variable and
 //      f is a function name.  this can be written in scala as
 //
-//      def f(x:Type)={}   where {} is y   means
+//      def f(x:Type)={}   where {} is y   x:Type  means x belong to Type (which can be Int, String or anything)
+//      Therefore f(x)=x**2 is defined as
 //      def sqr(x:Int) ={x**2}
 //
 //      Lamdba calculus has only one indepedent variable.
@@ -88,6 +92,14 @@
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 4. Currying Functions and Partially Applied Functions (all functions are currying functions)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    Curried function is a composition of function.
+//     suppose f, g and h are function for all values of x  where x belong to R.  then curried function is defined as
+//
+//     f => g => h => f(g(h(x)))
+//
+//     in other terms it can be written as  f=>(g=>h)
+//     Note:  that f is a higher order function since it will execute last in expression
+//
 //     in lambda calculus a function can have only take one argument ,  to use multiple argument we use currying
 //     let z=f(x,y) is a function and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
 //     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function in pure form
@@ -143,8 +155,13 @@
 // 5.     Partially Applied Functions and methods
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //     in same way Partially applied function as defined
+//
 //     let f(x,y) is a function on f:R->R
 //     f(x+y) =f(x)+f(y) then partially applied function is defined as  f(* + y) = f(*)+f(y)
+//
+//     in short a partially applied function is any function in which a part of values of x is known while
+//     rest are unknown.
+//     while a partial function is defined as a function where for some values of x defines different values of y
 //
 ////////////////
 //  Methods
@@ -201,6 +218,7 @@
 //                                   case x:Int if x==0 => x
 //                                   case x:Int if x>0 => x*x
 //                                  }
+//
 //  case class PhoneExt(name: String, ext: Int)
 //  val extensions = List(PhoneExt("steve", 100), PhoneExt("robey", 200))
 //
@@ -362,7 +380,7 @@ def addTototalM(x:Int)={
 ///////////////////////////////////////////////////////
 // curry function syntax as per mathematical definition
 //////////////////////////////////////////////////////
-
+//
 //     z=f(x,y) is a function  and f(x,y)=h(x)(y) implies z=h(x)(y) which means (x)(y)=>z where x=>y
 //     so it can be represented as  x=>y=>z.   z=h(x)(y) is a method and x=>y=>z a function form
 //
@@ -382,9 +400,21 @@ val addFiveDf:Int => (Int=>Int)=add
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Since scala is a functional programming language it support recursion more and loop less
 ///////////////////////////////////////////////////////////////////////////////////////
+// a function is called a recursive function if its a cyclic function and a partial.
+//
+// by cyclic function means function take itself as as an argument.
+// by partial function means function is defined on some value of x belonging to R
+//
+//  suppose y=f(x) where x belong to a set of function
+//  then f(f(x)) is a cyclic function.  as it calls itself.
+//
+//     a recursive function is defined as,  f:R->R
+//      f(x) = { x     if x=0                      }
+//             { f(x)   for all other values of x  }
+//
 // a recursive function is a partical function which is cyclic
-def factorial(n: Int): Int = if (n == 0) 1 else n * factorial(n-1)
-
+  def factorial(n: Int): Int = if (n == 0) 1 else n * factorial(n-1)
+//
 // the recursion work by add the calucation elements building a function untill all values are available.
 //  once all values are available the value is calculated,  here is how it works
 
@@ -403,7 +433,6 @@ factorial(5)
 //  dont have if else.  conditional logic is being processed by partial function.  which is a like a case statement.
 //
 //
-//f => g => x => f(g(x))             // Curried function composition
 
 val f = ((_: Int) + 1) andThen (_.toString)
 //f: Int => java.lang.String = <function1>
