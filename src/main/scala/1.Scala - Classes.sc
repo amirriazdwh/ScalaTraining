@@ -77,7 +77,7 @@ case class personCase ( var id:Int,
                     var name:String,
                     var Address:String,
                     var age:Int){
-  def incrId = this.id+1
+  def incrId = {this.id=this.id+1}
 }
 
 
@@ -94,7 +94,6 @@ var id01 = personCase.unapply(p)
 // you can ignore that message with case _ => None
 println(id)
 println(id01.get)
-
 def findid(x:personCase):Option[Int] ={
   x match {
     case personCase(1001, _,_,_) => Some(x.id)
@@ -102,7 +101,15 @@ def findid(x:personCase):Option[Int] ={
     case _ => None
   }
 }
+
 print("the value is "+findid(p))
+// a case class with parameter defined as var
+// can contains pure as well as impure function. that is why
+// a case class can be part of functional programming as
+// well as object orient programming as well
+p.incrId
+print("the value is "+findid(p))
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Utility class. class may not needed. an object without class is called stand alone object
