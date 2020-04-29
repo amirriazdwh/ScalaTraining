@@ -15,7 +15,7 @@
 // constructor whereas used as a type, F[_] means it is a wildcard (i.e. existential) type. In the future,
 // F[_] will mean the same thing, no matter where it is used.
 
-// NOTE:  _ means anonymous.   which can be type, value, function, argument, packages, class,
+// NOTE:  _ means anonymous. means it has no name,   which can be type, value, function, argument, packages, class,
 //          to understand the meaning of _ we must look into the section where its been defined.
 //          if the _ is in variable section,  its anonymous variable.    if its in function arugment its
 //          says argument name is unknown. if its in type place,  we say type is anonymous.
