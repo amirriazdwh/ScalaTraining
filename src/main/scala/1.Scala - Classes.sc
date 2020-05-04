@@ -592,6 +592,8 @@ class Stock {
 case class Book(title: String, pages: Int)
 
 val b1 = Book("Scala book", 150)
+val b11 =  Book("Scala book", _)
+
 
 b1.title //Scala book
 b1.pages //150
@@ -611,6 +613,8 @@ b1.equals(Book("Scala book", 150)) //true
 b1 == b2 //false
 b1 != b2
 b1 == Book("Scala book", 150) //true
+
+b1.isInstanceOf[Book]
 //////////////////////////////////////////////////////
 // 4.15. Defining an equals Method (Object Equality)//
 //////////////////////////////////////////////////////

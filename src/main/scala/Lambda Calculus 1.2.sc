@@ -6,8 +6,10 @@
 //  will be selected under certain conditions.
 //  The A part is defined as  Case class A(x:Type) and B is defined as case Case class B(x:Type) where A and B extend C
 //  A and B can be disjoint based on equivalence or logic.  Thats why they are called cases because each set has its own case environment
+// -------------------------------------------------------------------------------
 //  equivalence means {x. x belong to R such the x =A where A is some constant}
 //  logic means       {x, x:R such that x> or <= A where is some constant}
+// --------------------------------------------------------------------------------
 //  A case class parameters are immutable.  which ensure that methods inside the case class are deterministic or pure.
 //  that is why case class parameter are defined with val by default
 //
@@ -41,6 +43,7 @@ def findid(x:personCase):Option[Int] ={
   x match {
     case personCase(1001, _,_,_) => Some(x.id)
     case personCase(1002,_,_,_) =>Some( x.id)
+    case i:personCase => Some( i.id)
     case _ => None
   }
 }
@@ -53,6 +56,7 @@ print("the value is "+findid(p))
 p.incrId
 print("the value is "+findid(p))
 
+List
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //////////////////////////////////////////////////////////
@@ -61,7 +65,9 @@ print("the value is "+findid(p))
 // that (a,b)=(c,d) if and only if a=c and b=d. There are many ways of achieving this; the most common is the Kuratowski
 // definition of ordered pair:
 //
-
+//  (a,b)  is called tuple
+//  (a,_)  is called singleton
+//   ()    is called unit
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Disjunction in types
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
