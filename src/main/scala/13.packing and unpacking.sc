@@ -18,3 +18,8 @@ def foo(os: String*) = os.toList.foreach(println)
 val args = Seq("hi", "there")
 foo(args:_*)
 foo("hi", "there")
+
+val colors = Map("red" -> "#FF0000", "azure" -> "#F0FFFF")
+
+def parse(options: (String, String)*) = println (options.toMap)
+parse(colors:_,_ *)
