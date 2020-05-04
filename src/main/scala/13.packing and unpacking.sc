@@ -22,4 +22,9 @@ foo("hi", "there")
 val colors = Map("red" -> "#FF0000", "azure" -> "#F0FFFF")
 
 def parse(options: (String, String)*) = println (options.toMap)
-parse(colors:_,_ *)
+parse("red"->"#FF","azure"->"#F0FFFF")
+parse(colors.toSeq:_*)
+
+def foo(names: (_, _)*) = names.foreach(println)
+val folks = Map("john" -> "smith", "queen" -> "mary")
+foo(folks.toSeq:_*)
