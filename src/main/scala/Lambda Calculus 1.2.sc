@@ -77,3 +77,31 @@ List
 //  for example Option is a base type with of two disjunction types Some and None.   it means Either (Some , None)
 //  Means Option class give program an option to choose either Some or None but not the both.
 //  the matching will be done as  Option match {case Some => Some(value), Case None}
+
+
+// Case classes and case objects implicitly come with implementations of methods
+// toString, equals and hashCode, which override the methods with the
+// same name in class AnyRef. The implementation of these methods takes
+// in each case the structure of a member of a case class into account. The
+// toString method represents an expression tree the way it was constructed.
+// So,
+
+// Sum(Sum(Number(1), Number(2)), Number(3))
+
+// would be converted to exactly that string, whereas the default implementation
+// in class AnyRef would return a string consisting of the outermost constructor
+// name Sum and a number. The equals methods treats two case members
+// of a case class as equal if they have been constructed with the same constructor
+// and with arguments which are themselves pairwise equal. This also
+// affects the implementation of == and !=, which are implemented in terms of
+// equals in Scala. So,
+
+// Sum(Number(1), Number(2)) == Sum(Number(1), Number(2))
+
+// will yield true. If Sum or Number were not case classes, the same expression
+// would be false, since the standard implementation of equals in class AnyRef
+// always treats objects created by different constructor calls as being different.
+// The hashCode method follows the same principle as other two methods.
+// It computes a hash code from the case class constructor name and the
+// hash codes of the constructor arguments, instead of fromthe object’s address,
+// which is what the as the default implementation of hashCode does
