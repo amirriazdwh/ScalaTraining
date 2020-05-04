@@ -77,7 +77,7 @@ List
 //  for example Option is a base type with of two disjunction types Some and None.   it means Either (Some , None)
 //  Means Option class give program an option to choose either Some or None but not the both.
 //  the matching will be done as  Option match {case Some => Some(value), Case None}
-
+////////////////////////////////////////////////////////////////////////////////
 
 // Case classes and case objects implicitly come with implementations of methods
 // toString, equals and hashCode, which override the methods with the

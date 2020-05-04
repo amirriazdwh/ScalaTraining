@@ -16,7 +16,6 @@ println(s"${a1} has key ${b1}")
 //  and is not require in code.  as show below
 var a = (1,2)
 
-
 //////////////////////////////////////////////////////////////////////////////////////////
 // here are unpacking the tuple,  as per Lambda calculas to decompose a variable you needed
 //  partial function.  here is actually how compile decompose the tuple for example
