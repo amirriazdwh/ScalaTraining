@@ -30,6 +30,24 @@ https://kb.informatica.com/howto/6/pages/22/563675.aspx
 HOW TO: Change the Hive staging database used during Hadoop pushdown jobs executed from Informatica DEI
 https://kb.informatica.com/howto/6/pages/20/525087.aspx
 
+FAQ: What is the location of 'HADOOP_NODE_INFA_HOME' or 'INFA_HOME' on Hadoop cluster nodes from Informatica DEI 10.2.0?
+https://kb.informatica.com/faq/7/Pages/20/524145.aspx
+
+
+https://www.youtube.com/watch?v=l0lYEfi7rII
+
+https://www.youtube.com/watch?v=YdgKho6CFAc
+
+https://www.youtube.com/watch?v=G2VmGrAzyEo
+
+How to create a BDS mapping in Informatica Developer
+https://www.youtube.com/watch?v=y7mXMolhL5c
+
+Hive ACID - BDM Developer
+https://www.youtube.com/watch?v=P_ZXIuUn_Uw
+
+Informatica Hadoop/Hive Pushdown 9.5.1
+https://www.youtube.com/watch?v=VcESzArLCA4
 ############
 # Spark
 ###########
