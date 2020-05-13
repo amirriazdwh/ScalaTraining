@@ -1,3 +1,35 @@
+
+HOW TO: Change Hadoop cluster node JDK JAVA HOME being used for Sqoop pushdown jobs in Informatica
+https://kb.informatica.com/howto/6/Pages/21/527642.aspx
+
+HOW TO: Create Amazon S3 connection using command line in BDM/IDS/IDQ
+https://kb.informatica.com/howto/6/pages/20/514736.aspx
+
+HOW TO: Configure a JDBC connection in Developer tool
+https://kb.informatica.com/howto/6/pages/21/548832.aspx
+
+
+HOW TO: Create a Redshift connection using command line in BDM/IDS/IDQ
+https://kb.informatica.com/howto/6/pages/20/514732.aspx
+
+HOW TO: Run Sqoop jobs for Netezza Database using Informatica BDM 10.2.1 or later versions
+https://kb.informatica.com/howto/6/Pages/23/604910.aspx
+
+connection creation problem
+https://network.informatica.com/thread/80165
+
+BDM - Connection
+https://gerardnico.com/dit/bdm/connection
+
+HOW TO: Create CCO using 'Import from Archive File' option in Informatica DEI
+https://kb.informatica.com/howto/6/pages/20/523286.aspx
+
+FAQ: Is it possible to connect to multiple Hadoop clusters using the same Informatica DEI 10.1.x version?
+https://kb.informatica.com/howto/6/pages/22/563675.aspx
+
+HOW TO: Change the Hive staging database used during Hadoop pushdown jobs executed from Informatica DEI
+https://kb.informatica.com/howto/6/pages/20/525087.aspx
+
 ############
 # Spark
 ###########
