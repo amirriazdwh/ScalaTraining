@@ -1,0 +1,13 @@
+informatica bdm spark configuration youtube
+
+HOW TO: Configure YARN Queue to be used for running Spark Engine jobs from Informatica DEI
+https://kb.informatica.com/howto/6/pages/21/531634.aspx
+
+HOW TO: Configure CPU cores and memory for individual mapping when executed in Spark mode using Informatica
+https://kb.informatica.com/howto/6/pages/21/526094.aspx
+
+HOW TO: Get a dump of all advanced properties from BDM 10.2.1's Hadoop connection for debugging purposes
+https://kb.informatica.com/howto/6/pages/21/529878.aspx
+
+HOW TO: Verify Sqoop connectivity to database and table(s) used in Informatica DEI pushdown jobs from Hadoop Cluster
+https://kb.informatica.com/howto/6/Pages/21/533020.aspx
