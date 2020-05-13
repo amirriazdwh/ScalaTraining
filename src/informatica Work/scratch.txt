@@ -11,3 +11,6 @@ https://kb.informatica.com/howto/6/pages/21/529878.aspx
 
 HOW TO: Verify Sqoop connectivity to database and table(s) used in Informatica DEI pushdown jobs from Hadoop Cluster
 https://kb.informatica.com/howto/6/Pages/21/533020.aspx
+
+HOW TO: Configure Sqoop for Oracle Databases in Informatica Developer
+https://kb.informatica.com/howto/6/Pages/19/500711.aspx

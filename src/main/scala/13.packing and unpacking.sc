@@ -28,3 +28,22 @@ parse(colors.toSeq:_*)
 def foo(names: (_, _)*) = names.foreach(println)
 val folks = Map("john" -> "smith", "queen" -> "mary")
 foo(folks.toSeq:_*)
+
+
+val p = Map("a" -> 1, "b" -> 2, "c"->3)
+def unpackMap(a:Int,b:Int, c:Int) ={ print(s"a:$a b:$b c:$c") }
+unpackMap(a=1,b=2,c=3)
+
+(unpackMap _).tupled(p.toSeq.map{case (a,b )=>b})
+
+
+
+def timer[A](blockOfCode: => A) = {
+  val startTime = System.nanoTime
+  val result = blockOfCode
+  val stopTime = System.nanoTime
+  val delta = stopTime - startTime
+  (result, delta/1000000d)
+}
+
+val (result, time) = timer(println("Hello"))
