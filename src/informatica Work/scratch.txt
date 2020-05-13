@@ -48,6 +48,9 @@ https://www.youtube.com/watch?v=P_ZXIuUn_Uw
 
 Informatica Hadoop/Hive Pushdown 9.5.1
 https://www.youtube.com/watch?v=VcESzArLCA4
+
+Copying data from Oracle to Hadoop using Informatica  -- create hdfs connection
+https://www.youtube.com/watch?v=PR0OQpbLRiE
 ############
 # Spark
 ###########
