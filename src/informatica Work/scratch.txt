@@ -1,3 +1,7 @@
+############
+# Spark
+###########
+
 informatica bdm spark configuration youtube
 
 HOW TO: Configure YARN Queue to be used for running Spark Engine jobs from Informatica DEI
@@ -9,8 +13,30 @@ https://kb.informatica.com/howto/6/pages/21/526094.aspx
 HOW TO: Get a dump of all advanced properties from BDM 10.2.1's Hadoop connection for debugging purposes
 https://kb.informatica.com/howto/6/pages/21/529878.aspx
 
+
+#########################
+# Sqoob
+##########################
+
+FAQ: What are the sequence of steps executed when a Sqoop based mapping is run in Spark mode in Informatica 10.2.1 and above?
+https://kb.informatica.com/faq/7/Pages/22/562453.aspx
+
 HOW TO: Verify Sqoop connectivity to database and table(s) used in Informatica DEI pushdown jobs from Hadoop Cluster
 https://kb.informatica.com/howto/6/Pages/21/533020.aspx
 
 HOW TO: Configure Sqoop for Oracle Databases in Informatica Developer
 https://kb.informatica.com/howto/6/Pages/19/500711.aspx
+
+FAQ: What are the supported execution modes for Sqoop mapping in Informatica DEI?
+https://kb.informatica.com/faq/7/Pages/19/513893.aspx
+
+ERROR: "Sqoop requires a JDK that can compile Java code" when Sqoop job fails in Informatica 10.2.1
+https://kb.informatica.com/solution/23/Pages/67/534267.aspx
+
+ERROR: "java.lang.UnsupportedClassVersionError: org/apache/hadoop/util/RunJar: Unsupported major.minor version 51.0" while running Sqoop jobs in Spark mode of Informatica
+https://kb.informatica.com/solution/23/Pages/73/608976.aspx
+
+ERROR: "java: No such file or directory" while running Sqoop mappings in Blaze mode of Informatica DEI 10.2.2 or later versions
+https://kb.informatica.com/solution/23/Pages/71/585642.aspx
+
+https://docs.informatica.com/big-data-management/shared-content-for-big-data/10-2-2-hotfix-1/release-guide/version-10-2-2/changes--10-2-2-/big-data-management/sqoop.html
