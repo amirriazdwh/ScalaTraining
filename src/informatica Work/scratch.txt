@@ -57,6 +57,8 @@ https://kb.informatica.com/howto/6/pages/21/532973.aspx
 ############
 # Spark
 ###########
+HOW TO: Configure CPU cores and memory for individual mapping when executed in Spark mode using Informatica
+https://kb.informatica.com/howto/6/pages/21/526094.aspx
 
 informatica bdm spark configuration youtube
 
