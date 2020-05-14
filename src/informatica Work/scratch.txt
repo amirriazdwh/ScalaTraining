@@ -51,6 +51,9 @@ https://www.youtube.com/watch?v=VcESzArLCA4
 
 Copying data from Oracle to Hadoop using Informatica  -- create hdfs connection
 https://www.youtube.com/watch?v=PR0OQpbLRiE
+
+FAQ: Why Streaming mappings are running forever in Informatica DES?
+https://kb.informatica.com/howto/6/pages/21/532973.aspx
 ############
 # Spark
 ###########
