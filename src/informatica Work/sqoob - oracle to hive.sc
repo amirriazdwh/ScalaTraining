@@ -74,3 +74,20 @@
 //This would cause the timestamp information to be sqooped as string of 'yyyy-mm-dd hh:mm:ss.f'
 // format which could be casted into a date field.
 
+/////////////////////////////////////////////////////////////
+// serde in hive
+//////////////////////////////////////////////////////////
+// HDFS files –> InputFileFormat –> <key, value> –> Deserializer –> Row object
+// Row object –> Serializer –> <key, value> –> OutputFileFormat –> HDFS files
+///////////////////////////////////////////////////////////////////
+// how to truncate external table
+////////////////////////////////////////
+// ALTER TABLE abc SET TBLPROPERTIES('EXTERNAL'='FALSE');
+//Then truncate:
+//
+//  truncate table abc;
+// And finally you can make it external again:
+//
+//  ALTER TABLE abc SET TBLPROPERTIES('EXTERNAL'=
+//////////////////////////////////////////////
+
