@@ -17,7 +17,9 @@
 
 // ORC+Zlib has better performance than Paqruet + Snappy
 
-
+http://bdlabs.edureka.co/static/help/topics/impala_bigint.html
+https://impala.apache.org/docs/build/html/topics/impala_timestamp.html
+https://docs.cloudera.com/documentation/enterprise/5-8-x/topics/impala_datetime_functions.html
 
 // https://orc.apache.org/docs/types.html
 
