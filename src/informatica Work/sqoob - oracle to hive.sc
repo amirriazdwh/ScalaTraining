@@ -1,3 +1,26 @@
+//https://www.yumpu.com/en/document/read/38210438/oraoop-11-user-guide-cloudera-blog
+//
+//mysqlHostname=ip-172-31-2-124.us-west-2.compute.internal
+//mysqlDBName=employees
+//mysqlUsername=hive
+//
+//
+//sqoop import \
+//--connect jdbc:mysql://$mysqlHostname/$mysqlDBName \
+//  --table salaries \
+//  --username $mysqlUsername \
+//  -P \
+//--hcatalog-table orc_salaries \
+//--create-hcatalog-table \
+//  --map-column-hive  from_date=date,to_date=date\
+//  --hcatalog-storage-stanza 'stored as orcfile tblproperties ("orc.compress"="ZLIB")'
+
+// ORC+Zlib has better performance than Paqruet + Snappy
+
+
+
+// https://orc.apache.org/docs/types.html
+
 //Validating avro schema and json file
 //https://community.cloudera.com/t5/Community-Articles/Validating-avro-schema-and-json-file/ta-p/245033
 
