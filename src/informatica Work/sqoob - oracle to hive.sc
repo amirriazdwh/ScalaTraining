@@ -15,11 +15,19 @@
 //  --map-column-hive  from_date=date,to_date=date\
 //  --hcatalog-storage-stanza 'stored as orcfile tblproperties ("orc.compress"="ZLIB")'
 
+
 // ORC+Zlib has better performance than Paqruet + Snappy
 
-http://bdlabs.edureka.co/static/help/topics/impala_bigint.html
-https://impala.apache.org/docs/build/html/topics/impala_timestamp.html
-https://docs.cloudera.com/documentation/enterprise/5-8-x/topics/impala_datetime_functions.html
+// https://www.yumpu.com/en/document/read/38210438/oraoop-11-user-guide-cloudera-blog
+//http://bdlabs.edureka.co/static/help/topics/impala_bigint.html
+//https://impala.apache.org/docs/build/html/topics/impala_timestamp.html
+//https://docs.cloudera.com/documentation/enterprise/5-8-x/topics/impala_datetime_functions.html
+//https://docs.cloudera.com/documentation/enterprise/6/6.3/topics/impala_config_options.html
+//http://106.75.162.218:8180/static/help/topics/impala_config_options.html
+//https://dwgeek.com/commonly-used-impala-shell-command-line-options.html/
+//  https://cm.brandwire.tv/static/help/topics/impala_install.html
+//https://docs.cloudera.com/documentation/enterprise/5-12-x/topics/impala_timestamp.html
+//https://docs.cloudera.com/documentation/enterprise/5-12-x/topics/impala_timestamp.html
 
 // https://orc.apache.org/docs/types.html
 
