@@ -12,7 +12,7 @@
 //  -P \
 //--hcatalog-table orc_salaries \
 //--create-hcatalog-table \
-//  --map-column-hive  from_date=date,to_date=date\
+//  --map-column-hive  from_date=date,to_date=date \
 //  --hcatalog-storage-stanza 'stored as orcfile tblproperties ("orc.compress"="ZLIB")'
 
 
