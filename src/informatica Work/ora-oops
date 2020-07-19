@@ -141,3 +141,8 @@ API
 Training
 Blog
 About
+
+
+
+mapreduce.task.timeout
+sqoop import -Dmapreduce.map.memory.mb=8192 -Dmapreduce.map.java.opts=-Xmx7200m -Dmapreduce.task.io.sort.mb=2400
