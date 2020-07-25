@@ -30,7 +30,7 @@
 //      in pure functions parameters neither you can set values or you can get value.  Therefore
 //      def sqr(val x:Int) ={x**2} is a syntax error
 //
-//      in Functional programming all functions are first class first class functions means
+//      in Functional programming all functions are first class first class functions means, they are just like variables
 //      1.  They can be assigned to a variable
 //      2.  they can be passed as argument to a function
 //      3.  they can be returned as function.
