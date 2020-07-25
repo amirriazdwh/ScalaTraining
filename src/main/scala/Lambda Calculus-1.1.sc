@@ -7,6 +7,10 @@
 //        Referential transparency holds for each values of x there is a value of y ie x=>Y (y=f(x) may not be a pure
 //        function).  for same value of x we get the same value of y.  Means it does not have side effects
 //
+//        Print function is not a pure function,  because it takes a variable and there is no output so for a value of
+//        there is no value of y.  in same way,  global variable in a function can make pure function undeterministic
+//        means for same value of x there can be different value of y.  which is against pure funciton definition
+//
 //     ---------------------------------
 //     A pure function characteristic in programming language
 //       1.  a pure function does not change global state
