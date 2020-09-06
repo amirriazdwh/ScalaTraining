@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 case class PhoneExt(name: String, ext: Int)
-case class Phone(name: String, ad+dress: String, number: Int)
+case class Phone(name: String, address: String, number: Int)
 
 val PhoneExt(name, _) = PhoneExt("Amir Riaz",23444)
 
