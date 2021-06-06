@@ -12,4 +12,3 @@
 // to each element from the list. Another very common kind of higher-order function in those languages which support them
 // are sorting functions which take a comparison function as a parameter, allowing the programmer to separate the sorting
 // algorithm from the comparisons of the items being sorted. The C standard function qsort is an example of this.
-

@@ -32,6 +32,8 @@
 // Note:  def printAll(strings: String*) { strings.foreach(println)} /Use _* to adapt a sequence As shown in the following example,
 //         you can use Scala’s _* operator to adapt a sequence(Array, List, Seq, Vector, etc.) so it can be used as an argument
 //         for a varargs field: a sequence of strings, called by printAll(fruits: _*) where val fruits = List("apple", "banana", "cherry")
+//         here note that _ says derive the type from higher order function to which its being passed and * says its a sequence
+//         so types derived from sequence can be passed. which are Array, List, vector
 
 // Note:  new PartialFunction[Int, Option[String]] { def isDefinedAt(d: Int) = d == 1 def apply(v: Int) = Some("one")}
 // Note:  above PF is written as  case (v:Int) if v==1 => Some("one")

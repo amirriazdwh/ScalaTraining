@@ -36,13 +36,11 @@ def increaseAll(values: List[Int]): List[Int] =
 def increaseAll(values: List[Int]): List[Int] =
 {
   val k = 2
-
   values.map(v => v + k)
 }
 
 // Note that a function with no free variables is a special case of a closure (with an empty set of free variables).
 // Analogously, an anonymous function is a special case of an anonymous closure, i.e. an anonymous function is an anonymous
 // closure with no free variables.
-
 //
 

@@ -1,3 +1,6 @@
+////////////////////////////////////////////////
+//  How to pass tuples to a normal function
+///////////////////////////////////////////////
 def displayItem (x:Int,y:Int, z:Int) ={
   print(s"x:$x y:$y z:$z")
 }
@@ -12,8 +15,9 @@ def foo(bar1: Int, bar2: Int, bar3: Boolean = false, bar4: Int = 1) = {
 
 val x = (1, 2, true, 9)
 (foo _).tupled(x)
-
+/////////////////////////////////////////
 // Stirng* means Seq[String]
+////////////////////////////////////////
 def foo(os: String*) = os.toList.foreach(println)
 val args = Seq("hi", "there")
 foo(args:_*)
