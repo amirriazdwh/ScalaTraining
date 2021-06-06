@@ -34,7 +34,8 @@ case _ =>                         // Wild card pattern -- matches anything
 val (a, _) = (1, 2)               // same thing
 for (_ <- 1 to 10)                // same thing
   f(xs: _*)                       // Sequence xs is passed as multiple parameters to f(ys: T*) its using regular
-                                  // expression * means zero and many
+                                  // expression * means zero and many and _ means derive the type from Higher Order Functions
+                                  // function
                                   // _ means datatypes as define in input call
 case Seq(xs @ _*)                 // Identifier xs is bound to the whole matched sequence
 var i: Int = _                    // Initialization to the default value
